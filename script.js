@@ -241,9 +241,11 @@ btnLoan.addEventListener('click', function (e) {
 
   // only grants a loan if there is any deposit with at least 10% of requested loan amount
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    currentAccount.movements.push(amount);
-    currentAccount.movementsDates.push(new Date().toISOString());
-    updateUI(currentAccount);
+    setTimeout(function () {
+      currentAccount.movements.push(amount);
+      currentAccount.movementsDates.push(new Date().toISOString());
+      updateUI(currentAccount);
+    }, 1000);
   }
 
   inputLoanAmount.value = '';

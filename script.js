@@ -171,6 +171,7 @@ const startLogOutTimer = function () {
       clearInterval(timer);
 
       labelWelcome.textContent = 'Log in to get started';
+      containerApp.style.visibility = 'hidden';
       containerApp.style.opacity = 0;
     }
     time--;
@@ -199,6 +200,7 @@ btnLogin.addEventListener('click', function (e) {
     labelWelcome.textContent = `Welcome back, ${
       currentAccount.owner.split(' ')[0]
     }`;
+    containerApp.style.visibility = 'visible';
     containerApp.style.opacity = 100;
 
     // const now = new Date();
@@ -295,6 +297,7 @@ btnClose.addEventListener('click', function (e) {
     );
     accounts.splice(index, 1);
 
+    containerApp.style.visibility = 'hidden';
     containerApp.style.opacity = 0;
     labelWelcome.textContent = 'Log in to get started';
   }

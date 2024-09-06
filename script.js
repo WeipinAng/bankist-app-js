@@ -176,7 +176,7 @@ const startLogOutTimer = function () {
     time--;
   };
 
-  let time = 10;
+  let time = 600;
 
   tick();
   const timer = setInterval(tick, 1000);
@@ -257,6 +257,9 @@ btnTransfer.addEventListener('click', function (e) {
     receiverAcc.movementsDates.push(new Date().toISOString());
 
     updateUI(currentAccount);
+
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -271,6 +274,9 @@ btnLoan.addEventListener('click', function (e) {
       currentAccount.movements.push(amount);
       currentAccount.movementsDates.push(new Date().toISOString());
       updateUI(currentAccount);
+
+      clearInterval(timer);
+      timer = startLogOutTimer();
     }, 1000);
   }
 
